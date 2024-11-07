@@ -1,36 +1,35 @@
 package com.udacity.jdnd.course4.ecommerce.controllers;
 
-import com.udacity.jdnd.course4.ecommerce.TestUtils;
 import com.udacity.jdnd.course4.ecommerce.model.persistence.User;
 import com.udacity.jdnd.course4.ecommerce.model.persistence.repositories.CartRepository;
 import com.udacity.jdnd.course4.ecommerce.model.persistence.repositories.UserRepository;
 import com.udacity.jdnd.course4.ecommerce.model.requests.CreateUserRequest;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import org.mockito.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 public class UserControllerTest {
 
+    @InjectMocks
     private UserController userController;
 
+    @Mock
     private UserRepository userRepository = mock(UserRepository.class);
 
+    @Mock
     private CartRepository cartRepository = mock(CartRepository.class);
 
+    @Mock
     private BCryptPasswordEncoder bCryptPasswordEncoder = mock(BCryptPasswordEncoder.class);
 
     @Before
     public void setUp() {
-        userController = new UserController();
-        TestUtils.injectObjects(userController, "userRepository", userRepository);
-        TestUtils.injectObjects(userController, "cartRepository", cartRepository);
-        TestUtils.injectObjects(userController, "bCryptPasswordEncoder", bCryptPasswordEncoder);
+        MockitoAnnotations.initMocks(this);
     }
 
     @Test
