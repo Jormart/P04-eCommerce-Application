@@ -1,6 +1,6 @@
 # eCommerce Application
 
-This repository contains my personal implementation of an eCommerce application, demonstrating authentication, authorization, and security best practices in a Spring Boot environment.
+This repository contains my implementation of an eCommerce application, demonstrating authentication, authorization, and security best practices in a Spring Boot environment.
 
 ## Project Overview
 This application is developed in Java using Spring Boot, Hibernate ORM, and an H2 in-memory database, allowing a fresh state each time the application restarts.
